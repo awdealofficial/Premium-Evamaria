@@ -38,7 +38,7 @@ async def save_group(bot, message):
             await bot.leave_chat(message.chat.id)
             return
         buttons = [[
-                    InlineKeyboardButton('🤖 Sᴜᴘᴘᴏʀᴛ', url=GRP_LNK),
+                    InlineKeyboardButton('💫 Sᴜᴘᴘᴏʀᴛ', url=GRP_LNK),
                     InlineKeyboardButton('✨ Uᴘᴅᴀᴛᴇs ', url=CHNL_LNK)
                  ],[
                     InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="https://t.me/OwnYourBotz")
@@ -61,7 +61,7 @@ async def save_group(bot, message):
                                                  caption=(script.MELCOW_ENG.format(u.mention, message.chat.title)),
                                                  reply_markup=InlineKeyboardMarkup(
                                                                          [[
-                                                                           InlineKeyboardButton('🤖 Sᴜᴘᴘᴏʀᴛ', url=GRP_LNK),
+                                                                           InlineKeyboardButton('💫 Sᴜᴘᴘᴏʀᴛ', url=GRP_LNK),
                                                                            InlineKeyboardButton('✨ Uᴘᴅᴀᴛᴇs', url=CHNL_LNK)
                                                                         ],[
                                                                            InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="https://t.me/OwnYourBotz")
@@ -89,7 +89,7 @@ async def leave_a_chat(bot, message):
         chat = chat
     try:
         buttons = [[
-            InlineKeyboardButton('🤖 Sᴜᴘᴘᴏʀᴛ',url="https://t.me/kdrama_requests"),
+            InlineKeyboardButton('💫 Sᴜᴘᴘᴏʀᴛ',url="https://t.me/Kdrama_requests"),
             InlineKeyboardButton('Bᴏᴛ Oᴡɴᴇʀ', url="https://t.me/OwnYourBotz")
         ],[
             InlineKeyboardButton('Use Me Here', url=f'https://t.me/{SUPPORT_CHAT}')
@@ -131,7 +131,7 @@ async def disable_chat(bot, message):
     await message.reply('Chat Successfully Disabled')
     try:
         buttons = [[
-            InlineKeyboardButton('🤖 Sᴜᴘᴘᴏʀᴛ', url=f'https://t.me/{SUPPORT_CHAT}')
+            InlineKeyboardButton('💫 Sᴜᴘᴘᴏʀᴛ', url=f'https://t.me/{SUPPORT_CHAT}')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
@@ -162,7 +162,7 @@ async def re_enable_chat(bot, message):
     await message.reply("Chat Successfully re-enabled")
 
 
-@Client.on_message(filters.command('stats') & filters.incoming)
+@Client.on_message(filters.command('stats') & filters.user(ADMINS))
 async def get_ststs(bot, message):
     rju = await message.reply('Fetching stats..')
     total_users = await db.total_users_count()
